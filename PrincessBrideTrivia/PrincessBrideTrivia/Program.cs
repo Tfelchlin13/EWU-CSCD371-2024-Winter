@@ -39,7 +39,7 @@ public class Program
 
     public static bool DisplayResult(string userGuess, Question question)
     {
-        if (userGuess == question.CorrectAnswerIndex)
+        if (string.Equals(userGuess, question.CorrectAnswerIndex, StringComparison.OrdinalIgnoreCase))
         {
             Console.WriteLine("Correct");
             return true;
@@ -51,6 +51,7 @@ public class Program
 
     public static void DisplayQuestion(Question question)
     {
+        if(question is null) { return; }
         Console.WriteLine("Question: " + question.Text);
         for (int i = 0; i < question.Answers.Length; i++)
         {
@@ -80,6 +81,7 @@ public class Program
             string correctAnswerIndex = lines[lineIndex + 4];
 
             Question question = new();
+            questions[i] = question;
             question.Text = questionText;
             question.Answers = new string[3];
             question.Answers[0] = answer1;
