@@ -21,7 +21,7 @@ public class Program
 
     public static string GetPercentCorrect(int numberCorrectAnswers, int numberOfQuestions)
     {
-        return (numberCorrectAnswers / numberOfQuestions * 100) + "%";
+        return ((((float)numberCorrectAnswers / numberOfQuestions)) * 100) + "%";
     }
 
     public static bool AskQuestion(Question question)
@@ -39,7 +39,7 @@ public class Program
 
     public static bool DisplayResult(string userGuess, Question question)
     {
-        if (string.Equals(userGuess, question.CorrectAnswerIndex, StringComparison.OrdinalIgnoreCase))
+        if (string.Equals(userGuess,question.CorrectAnswerIndex,StringComparison.OrdinalIgnoreCase))
         {
             Console.WriteLine("Correct");
             return true;
