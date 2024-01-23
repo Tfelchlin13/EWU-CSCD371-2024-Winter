@@ -3,8 +3,8 @@ using System.Net.WebSockets;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Logger.Tests
-{
+namespace Logger.Tests;
+
     [TestClass]
     public class LogFactoryTests
     {
@@ -37,4 +37,4 @@ namespace Logger.Tests
         }
         
     }
-}
+

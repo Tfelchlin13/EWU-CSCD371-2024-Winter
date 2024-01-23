@@ -3,8 +3,7 @@ using System.IO;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Logger.Tests
-{
+namespace Logger.Tests;
     [TestClass]
     public class FileLoggerTests
     {
@@ -105,4 +104,4 @@ namespace Logger.Tests
             Assert.IsTrue(fileContent.Contains(logMessage));
         }
     }
-}
+
