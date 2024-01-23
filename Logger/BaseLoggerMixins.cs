@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Logger
-{
+namespace Logger;
+
     public static class BaseLoggerMixins
     {
         public static void Error(this BaseLogger logger, string message, params object[] args)
@@ -38,4 +38,4 @@ namespace Logger
             logger.Log(logLevel, $"{className} {logLevel}: {formattedMessage}");
         }
     }
-}
+
