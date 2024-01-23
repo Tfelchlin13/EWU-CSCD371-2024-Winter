@@ -1,30 +1,40 @@
-﻿using System.Net.WebSockets;
+﻿using System;
+using System.Net.WebSockets;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Logger.Tests;
-
-[TestClass]
-public class LogFactoryTests
-
+namespace Logger.Tests
 {
-    private LogFactory? _logFactory;
-    [TestInitialize]
-    public void Constructor()
+    [TestClass]
+    public class LogFactoryTests
     {
-        _logFactory = new();
-    }
+        private LogFactory? _logFactory;
 
-    [TestMethod]
-    public void CreateLogger_ClassName_Success()
-    {
-       
-    }
-    [TestMethod]
-    public void CreateLogger_ClassName_Failure()
-    {
-       
+        [TestInitialize]
+        public void Setup()
+        {
+            _logFactory = new LogFactory();
+        }
 
-    }
+        [TestMethod]
+        public void CreateLogger_NoFile_ShouldReturnNull()
+        {
+            BaseLogger? logger = _logFactory?.CreateLogger(nameof(LogFactoryTests));
 
+            Assert.IsNull(logger);
+        }
+
+        [TestMethod]
+        public void CreateLogger_File_ShouldReturnFileLogger()
+        {
+
+            _logFactory?.ConfigureFileLogger("Test");
+
+            
+            BaseLogger? logger = _logFactory?.CreateLogger(nameof(LogFactoryTests));
+
+            Assert.IsInstanceOfType(logger, typeof(FileLogger));
+        }
+        
+    }
 }
