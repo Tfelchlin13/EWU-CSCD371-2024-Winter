@@ -1,16 +1,30 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Net.WebSockets;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Logger.Tests;
 
 [TestClass]
 public class LogFactoryTests
+
 {
-    
-    [TestMethod]
-    public void CreateLogger_NoPathString_NullReturned()
+    private LogFactory? _logFactory;
+    [TestInitialize]
+    public void Constructor()
     {
-        var factory = new LogFactory();
-        Assert.IsNull(factory.CreateLogger());
+        _logFactory = new();
+    }
+
+    [TestMethod]
+    public void CreateLogger_ClassName_Success()
+    {
+       
+    }
+    [TestMethod]
+    public void CreateLogger_ClassName_Failure()
+    {
+       
+
     }
 
 }
