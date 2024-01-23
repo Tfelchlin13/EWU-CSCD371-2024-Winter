@@ -1,6 +1,5 @@
 ﻿using System;
 #nullable enable
-using System;
 using System.IO;
 namespace Logger;
 

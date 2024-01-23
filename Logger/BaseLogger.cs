@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 #nullable enable
 namespace Logger;
@@ -22,11 +23,11 @@ public class FileLogger : BaseLogger
 
     public override void Log(LogLevel logLevel, string message)
     {
-        // Get the current date/time
-        string currentDateTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt");
+        // Get the current date/time using InvariantCulture
+        string currentDateTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss tt", CultureInfo.InvariantCulture);
 
         // Get the name of the class that created the logger
-        string className = ClassName ?? "Unknown"; 
+        string className = ClassName ?? "Unknown";
 
         // Create the log entry
         string logEntry = $"{currentDateTime} {className} {logLevel}: {message}";
@@ -34,5 +35,6 @@ public class FileLogger : BaseLogger
         // Append the log entry to the file
         File.AppendAllText(filePath, logEntry + Environment.NewLine);
     }
+
 }
 

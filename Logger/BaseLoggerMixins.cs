@@ -1,5 +1,6 @@
 ﻿using System;
-#nullable enable
+using System.Globalization;
+
 namespace Logger
 {
     public static class BaseLoggerMixins
@@ -32,9 +33,9 @@ namespace Logger
             }
 
             string className = nameof(BaseLogger);
-            string formattedMessage = string.Format(message, args);
+           
+            string formattedMessage = string.Format(CultureInfo.InvariantCulture, message, args);
             logger.Log(logLevel, $"{className} {logLevel}: {formattedMessage}");
         }
     }
-
 }
