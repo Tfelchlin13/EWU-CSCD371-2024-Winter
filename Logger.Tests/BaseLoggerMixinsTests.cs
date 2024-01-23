@@ -7,7 +7,7 @@ namespace Logger.Tests;
 [TestClass]
 public class BaseLoggerMixinsTests
 {
-   /* [TestMethod]
+    /*[TestMethod]
     [ExpectedException(typeof(ArgumentNullException))]
     public void Error_WithNullLogger_ThrowsException()
     {
@@ -31,7 +31,8 @@ public class BaseLoggerMixinsTests
         // Assert
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
-        Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
+        Assert.AreEqual("BaseLogger Error: Message 42", logger.LoggedMessages[0].Message);
+
     }
     [TestMethod]
     public void CheckingForClassNameProperty_WhenInstantiatingTestLogger_ShouldReturnTrue()
