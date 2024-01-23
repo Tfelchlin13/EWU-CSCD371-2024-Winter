@@ -33,6 +33,16 @@ public class BaseLoggerMixinsTests
         Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
         Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
     }
+    [TestMethod]
+    public void CheckingForClassNameProperty_WhenInstantiatingTestLogger_ShouldReturnTrue()
+    {
+        // Arrange
+        BaseLogger logger = new TestLogger(); // Use TestLogger instead of BaseLogger
+
+        // Act & Assert
+        Assert.IsTrue(typeof(BaseLogger).GetProperty("ClassName") != null);
+    }
+
 
 }
 
@@ -44,4 +54,6 @@ public class TestLogger : BaseLogger
     {
         LoggedMessages.Add((logLevel, message));
     }
+
+    
 }
