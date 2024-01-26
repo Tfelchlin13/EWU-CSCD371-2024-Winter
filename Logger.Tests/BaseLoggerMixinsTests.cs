@@ -78,7 +78,7 @@ public class BaseLoggerMixinsTests
     [TestMethod]
     public void Error_WithData_Successful()
     {
-         TestLogger logger = new TestLogger();
+         TestLogger logger = new();
         logger.Error("Message {0}", 10, 45, 100, 55);
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
@@ -135,7 +135,7 @@ public class BaseLoggerMixinsTests
         TestLogger logger = new ();
         LogLevel logLevel = LogLevel.Warning;
         string message = "Test Message {0} {1}";
-        object[] args = { 42, "abc" };
+        object[] args = [42, "abc"];
 
         // Act
         BaseLoggerMixins.LogWithLevel(logger, logLevel, message, args);
