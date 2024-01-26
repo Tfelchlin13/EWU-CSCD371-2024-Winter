@@ -56,7 +56,7 @@ public class BaseLoggerMixinsTests
     public void Error_WithData_LogsMessage()
     {
         // Arrange
-        var logger = new TestLogger();
+        TestLogger logger = new();
 
         // Act
         logger.Error("Message {0}", 42);
@@ -69,9 +69,7 @@ public class BaseLoggerMixinsTests
     }
     [TestMethod]
     public void CheckingForClassNameProperty_WhenInstantiatingTestLogger_ShouldReturnTrue()
-    {
-        // Arrange
-        BaseLogger logger = new TestLogger(); // Use TestLogger instead of BaseLogger
+    { 
 
         // Act & Assert
         Assert.IsTrue(typeof(BaseLogger).GetProperty("ClassName") != null);
@@ -90,7 +88,7 @@ public class BaseLoggerMixinsTests
     public void Warning_WithData_Successful()
     {
         // Arrange
-        TestLogger logger = new TestLogger();
+        TestLogger logger = new();
 
         // Act
         logger.Warning("Message {0} {1} {2} {3}", 10, 45, 100, 55);
@@ -104,7 +102,7 @@ public class BaseLoggerMixinsTests
     public void Debug_WithData_Successful()
     {
         // Arrange
-        TestLogger logger = new TestLogger();
+        TestLogger logger = new();
 
         // Act
         logger.Debug("Message {0} {1} {2} {3}", 10, 45, 100, 55);
@@ -120,7 +118,7 @@ public class BaseLoggerMixinsTests
     public void Information_WithData_Successful()
     {
         // Arrange
-        TestLogger logger = new TestLogger();
+        TestLogger logger = new ();
 
         // Act
         logger.Information("Message {0} {1} {2} {3}", 10, 45, 100, 55);
@@ -134,7 +132,7 @@ public class BaseLoggerMixinsTests
     public void LogWithLevel_WithNonNullLogger_Success()
     {
         // Arrange
-        TestLogger logger = new TestLogger();
+        TestLogger logger = new ();
         LogLevel logLevel = LogLevel.Warning;
         string message = "Test Message {0} {1}";
         object[] args = { 42, "abc" };
