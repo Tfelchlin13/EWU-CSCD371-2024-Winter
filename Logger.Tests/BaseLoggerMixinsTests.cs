@@ -79,7 +79,7 @@ public class BaseLoggerMixinsTests
     public void Error_WithData_Successful()
     {
          TestLogger logger = new();
-        logger.Error("Message {0}", 10, 45, 100, 55);
+        logger.Error("Message {0} {1} {2} {3}", 10, 45, 100, 55);
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
         Assert.AreEqual("BaseLogger Error: Message 10 45 100 55", logger.LoggedMessages[0].Message);
