@@ -2,7 +2,7 @@
 
 namespace CanHazFunny;
 
-class Program
+public class Program
 {
     static void Main(string[] args)
     {
@@ -12,7 +12,7 @@ class Program
         IJokeOutput jokeOutput = new JokeOutput();
 
         // Create an instance of the Jester class
-        Jester jester = new Jester(jokeService, jokeOutput);
+        Jester jester = new (jokeService, jokeOutput);
 
         // Tell a joke
         Console.WriteLine("Here's a joke from the Jester:");
