@@ -15,8 +15,7 @@ public class LogFactory
         }
         else {
 
-          BaseLogger logger = new FileLogger(_FilePath);
-            return logger;
+          return new FileLogger(_FilePath);
 
         }
     }
