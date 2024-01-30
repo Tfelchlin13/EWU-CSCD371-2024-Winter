@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CanHazFunny
+namespace CanHazFunny;
+
+public class JokeOutput : IJokeOutput
 {
-    public class JokeOutput : IJokeOutput
+    public void WriteJoke(string joke)
     {
-        public void WriteJoke(string joke)
-        {
-            ArgumentNullException.ThrowIfNull(joke);
+        ArgumentNullException.ThrowIfNull(joke);
 
-            Console.WriteLine(joke);
-        }
+        Console.WriteLine(joke);
     }
 }
+

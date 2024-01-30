@@ -86,4 +86,6 @@ public class JesterTests
 
         JokeOutputMock.Verify(jokeoutput => jokeoutput.WriteJoke("This is a super amazing joke"), Times.Once);
     }
+    
 }
+    
