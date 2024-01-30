@@ -4,8 +4,8 @@ namespace CanHazFunny
 {
     public class Jester(IJokeService jokeService, IJokeOutput jokeOutput)
     {
-        public IJokeService JokeService { get; } = jokeService ?? throw new ArgumentNullException(nameof(jokeService));
-        public IJokeOutput JokeOutput { get; } = jokeOutput ?? throw new ArgumentNullException(nameof(jokeOutput));
+        IJokeService JokeService { get; } = jokeService ?? throw new ArgumentNullException(nameof(jokeService));
+        IJokeOutput JokeOutput { get; } = jokeOutput ?? throw new ArgumentNullException(nameof(jokeOutput));
 
         public void TellJoke()
         {
