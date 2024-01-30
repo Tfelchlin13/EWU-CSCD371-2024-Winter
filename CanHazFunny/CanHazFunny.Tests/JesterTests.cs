@@ -31,7 +31,7 @@ public class JesterTests
     [Fact]
     public void JokeService_Joke_Success()
     {
-        Mock<IJokeService> jokeServiceMock = new Mock<IJokeService>();
+        Mock<IJokeService> jokeServiceMock = new();
         string expectedJoke = "This is a super funny joke!";
         jokeServiceMock.Setup(jokeservice => jokeservice.GetJoke()).Returns(expectedJoke);
 
